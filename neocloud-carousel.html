@@ -1,0 +1,67 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="neocloud-carousel-items.html">
+
+<dom-module id="neocloud-carousel">
+  <template>
+    <!-- Styles MUST be inside template -->
+    <style>
+      neocloud-carousel-items {
+        width: 100%;
+        contain: content;
+      }
+    
+      neocloud-carousel-items::after {
+        display: block;
+        content: '';
+        padding-top: 75%; /* 4:3 = height is 75% of width */
+      }
+    
+      neocloud-carousel-items img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
+    <iron-ajax
+      auto
+      id="getImagesList"
+      url="images.json"
+      handle-as="json"
+      last-response="{{dataImagesList}}">
+    </iron-ajax>
+
+    <neocloud-carousel-items
+      auto-play="[[autoPlay]]">
+      <template is="dom-repeat" items="[[dataImagesList.data]]" slot="images">
+        <img src="[[item.image]]">
+      </template>
+      
+    </neocloud-carousel-items>
+
+  </template>
+
+  <script>
+
+    // Extend Polymer.Element base class
+    class NeocloudCarousel extends Polymer.Element {
+      static get is() { return 'neocloud-carousel' }
+      static get properties() {
+        return {
+          autoPlay: {
+            type: Boolean,
+            value: false
+          }
+        };
+      }
+    }
+
+    // Register custom element definition using standard platform API
+    customElements.define(NeocloudCarousel.is, NeocloudCarousel);
+
+  </script>
+</dom-module>
