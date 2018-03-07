@@ -1,6 +1,6 @@
 {
   "name": "neocloud-carousel",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Polymer component for display images carousel.",
   "authors": [
     "edgar.piera@neogrup.com"
@@ -16,7 +16,6 @@
     "url": "https://github.com/NEOGRUP/neocloud-carousel"
   },
   "license": "MIT",
-  "homepage": "",
   "ignore": [],
   "private": true,
   "dependencies": {

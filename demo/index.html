@@ -5,17 +5,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-  <title>neocloud-carousel</title>
+  <title>carousel-demo</title>
 
-  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+
   
   <link rel="import" href="../neocloud-carousel.html">
   <style>
   </style>
 </head>
 
-<body>
-  <neocloud-carousel
-    _auto-play></neocloud-carousel>
+<body unresolved>
+  <demo-snippet class="centered-demo">
+    <template>
+      <neocloud-carousel
+        auto-play></neocloud-carousel>
+    </template>
+  </demo-snippet>
 </body>
 </html>
