@@ -16,7 +16,7 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Carrousel",
+            "name": "Carousel",
             "url": "http://localhost:8081/demo",
             "runtimeArgs": [
               "--incognito"
@@ -29,7 +29,7 @@
             "name": "Full-stack",
             "configurations": [
                 "Polymer",
-                "Carrousel"
+                "Carousel"
             ]
         }
     ]

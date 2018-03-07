@@ -27,17 +27,10 @@
       }
     </style>
 
-    <iron-ajax
-      auto
-      id="getImagesList"
-      url="images.json"
-      handle-as="json"
-      last-response="{{dataImagesList}}">
-    </iron-ajax>
 
     <neocloud-carousel-items
       auto-play="[[autoPlay]]">
-      <template is="dom-repeat" items="[[dataImagesList.data]]" slot="images">
+      <template is="dom-repeat" items="[[data.data]]" slot="images">
         <img src="[[item.image]]">
       </template>
       
@@ -55,7 +48,8 @@
           autoPlay: {
             type: Boolean,
             value: false
-          }
+          },
+          data: Object
         };
       }
     }

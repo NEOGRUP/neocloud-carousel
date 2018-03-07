@@ -3,26 +3,53 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-  <title>carousel-demo</title>
+  <title>neocloud-carousel</title>
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-
+  <link rel="import" href="../../polymer/polymer-element.html">
+  <link rel="import" href="../../iron-ajax/iron-ajax.html">
   
   <link rel="import" href="../neocloud-carousel.html">
-  <style>
-  </style>
 </head>
 
-<body unresolved>
-  <demo-snippet class="centered-demo">
-    <template>
-      <neocloud-carousel
-        auto-play></neocloud-carousel>
-    </template>
-  </demo-snippet>
-</body>
-</html>
+<body>
+<dom-module id="neocloud-carousel-demo">
+  <template>
+    <style>
+      .container{
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <iron-ajax
+      auto
+      id="getImagesList"
+      url="images.json"
+      handle-as="json"
+      last-response="{{dataImagesList}}">
+    </iron-ajax>
+      
+    <div class="container">
+        <neocloud-carousel
+          data="[[dataImagesList]]"
+          auto-play></neocloud-carousel>
+    </div>
+
+  
+  </template>
+  <script>
+    class NeocloudCarouselDemo extends Polymer.Element {
+      static get is() {
+        return 'neocloud-carousel-demo';
+      }
+    }
+    window.customElements.define(NeocloudCarouselDemo.is, NeocloudCarouselDemo);
+
+  </script>
+  </dom-module>
+  <neocloud-carousel-demo></neocloud-carousel-demo>
+  </body>
+  </html>
