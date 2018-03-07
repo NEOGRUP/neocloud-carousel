@@ -51,8 +51,10 @@
       <slot attribute="images"></slot>
     </div>
 
-    <button id="prevBtn" on-click="previous">&#x276E;</button>
-    <button id="nextBtn" on-click="next">&#x276F;</button>
+    <template is="dom-if" if="{{buttonsEnabled}}">
+      <button id="prevBtn" on-click="previous">&#x276E;</button>
+      <button id="nextBtn" on-click="next">&#x276F;</button>
+    </template>
 
   </template>
 
@@ -66,6 +68,7 @@
       static get properties() {
         return {
           autoPlay: Boolean,
+          autoPlayTimeChange: Number,
           selected: {
             type: Object,
             observer: '_selectedChanged'
@@ -100,7 +103,7 @@
             this.selected = this.firstElementChild;            
 
             if (this.autoPlay){
-              setInterval(_ => this.next(), 3000);
+              setInterval(_ => this.next(), this.autoPlayTimeChange * 1000);
             }
           }
         }

@@ -1,6 +1,6 @@
 {
   "name": "neocloud-carousel",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Polymer component for display images carousel.",
   "authors": [
     "edgar.piera@neogrup.com"

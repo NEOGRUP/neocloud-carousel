@@ -2,16 +2,16 @@
     "apiVersion": "",
     "data": [
         {
-            "image": "https://app-layout-assets.appspot.com/assets/bg1.jpg"
+            "url": "https://app-layout-assets.appspot.com/assets/bg1.jpg"
         },
         {
-            "image": "https://app-layout-assets.appspot.com/assets/bg2.jpg"
+            "url": "https://app-layout-assets.appspot.com/assets/bg2.jpg"
         },
         {
-            "image": "https://app-layout-assets.appspot.com/assets/bg3.jpg"
+            "url": "https://app-layout-assets.appspot.com/assets/bg3.jpg"
         },
         {
-            "image": "https://app-layout-assets.appspot.com/assets/bg4.jpg"
+            "url": "https://app-layout-assets.appspot.com/assets/bg4.jpg"
         }
     ],
     "error": null
