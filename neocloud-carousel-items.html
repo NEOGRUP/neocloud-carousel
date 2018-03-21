@@ -68,7 +68,10 @@
       static get properties() {
         return {
           autoPlay: Boolean,
-          autoPlayTimeChange: Number,
+          autoPlayTimeChange: {
+            type: Number,
+            value: 5
+          },
           selected: {
             type: Object,
             observer: '_selectedChanged'
@@ -88,12 +91,16 @@
         if (selected) selected.setAttribute('selected', '');
         
         if (selected) {
-          this.$.prevBtn.disabled = (!selected.previousElementSibling);
-          this.$.nextBtn.disabled = (!selected.nextElementSibling) || (selected.nextElementSibling.nodeName=="DOM-REPEAT");
+          if (this.buttonsEnabled){
+            this.$.prevBtn.disabled = (!selected.previousElementSibling);
+            this.$.nextBtn.disabled = (!selected.nextElementSibling) || (selected.nextElementSibling.nodeName=="DOM-REPEAT");
+          }
 
         } else {
-          this.$.prevBtn.disabled = true;
-          this.$.nextBtn.disabled = true;
+          if (this.buttonsEnabled){
+            this.$.prevBtn.disabled = true;
+            this.$.nextBtn.disabled = true;
+          }
         }
       }
 
@@ -103,7 +110,7 @@
             this.selected = this.firstElementChild;            
 
             if (this.autoPlay){
-              setInterval(_ => this.next(), this.autoPlayTimeChange * 1000);
+              setInterval(() => this.next(), this.autoPlayTimeChange * 1000);
             }
           }
         }
